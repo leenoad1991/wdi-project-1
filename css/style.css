@@ -1,4 +1,46 @@
 body {
   background: blue;
 }
- 
+
+h1 {
+  padding-top: 20%;
+  text-align: center;
+  font-size: 3em;
+  font-weight: 600;
+  line-height: 1.3em;
+}
+ #questionbox {
+  height: 100px;
+  width: 100px;
+  border-style: solid;
+  background-color: white;
+  margin: 20px;
+  display: inline-block;
+ }
+
+.answerbox {
+  height: 100px;
+  width: 100px;
+  border-style: solid;
+  background-color: white;
+  margin: 20px;
+  display: inline-block;
+}
+
+#timescreen {
+  height: 100px;
+  width: 100px;
+  border-style: solid;
+  background-color: white;
+  margin: 20px;
+  display: inline-block;
+}
+
+#scoreboard {
+  height: 100px;
+  width: 100px;
+  border-style: solid;
+  background-color: white;
+  margin: 20px;
+  display: inline-block;
+}
