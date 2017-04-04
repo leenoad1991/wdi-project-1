@@ -1,74 +1,98 @@
-//make first category of countries
-//randomly select one when page loads
-//.text in to question box
-//switch statement to compare answer and question
-
-
-
-// let timeRemaining = 20;
-//  let timerIsRunning = false;
-//  function startStopTimer() {
-//    if(timerIsRunning) {
-//      timerIsRunning = false;
-//      return clearInterval(timerId);
-//    }
-//    timerIsRunning = true;
-//    timerId = setInterval(() => {
-//      timeRemaining--;
-//      $timerScreen.text(timeRemaining);
-//      if (timeRemaining === 0) {
-//        console.log('stop');
-//        clearInterval(timerId);
-//        $timer.addClass('ringing');
-//        setTimeout(() => {
-//          $timer.removeClass('ringing');
-//        }, 3000);
-//      }
-//    },1000);
-
-// window.alert('Round 1. You must answer 3 questions correctly in 20 seconds to progress to round 2!. Good luck...');
-
 var countriesAndCapitals = {
   'England': 'London',
-  'Spain': 'Madrid'
-  'France': 'Paris'
-  'USA': 'Washington DC'
-  'Germany': 'Berlin'
-  'Australia': 'Canberra'
-  'Italy': 'Rome'
-  'Holland': 'Amsterdam'
-  'Brazil': 'Brasilia'
+  'Spain': 'Madrid',
+  'France': 'Paris',
+  'USA': 'Washington DC',
+  'Germany': 'Berlin',
+  'Australia': 'Canberra',
+  'Italy': 'Rome',
+  'Holland': 'Amsterdam',
+  'Brazil': 'Brasilia',
   'Canada': 'Ottawa'
 };
 
-$(function() {
+var countriesAndCapitals2 = {
+  'China': 'Beijing',
+  'Japan': 'Tokyo',
+  'Switerland': 'Bern',
+  'Denmark': 'Copenhagen',
+  'Greece': 'Athens',
+  'Ireland': 'Dublin',
+  'Jamaica': 'Kingston',
+  'Mexico': 'Mexico City',
+  'Norway': 'Oslo',
+  'Sweden': 'Stockholm'
+};
 
-  const countries1 =  ['England', 'Spain', 'France', 'USA', 'Germany', 'Australia',  'Italy', 'Hollland', 'Brazil', 'Canada'];
+let $question;
+let answer;
+let selectedCountry;
+let count = 1;
+let score = 0;
+const countryArray = [];
+var $time = 30;
 
-  const $innerBox =   $('.innerBox');
-  const answer =      ('$answerBox')
 
-  function randomnumber () {
-    return Math.floor(Math.random() * countries1.length);
+$(init);
+
+function init() {
+  $question = $('#question');
+  $answer   = $('#answer');
+
+
+  $('.start').on('click', () => pickRandomCountry());
+  $('form').on('submit', compareAnswers);
+}
+
+function pickRandomCountry(countries=countriesAndCapitals) {
+  selectedCountry = Object.keys(countries)[randomnumber()];
+  answer = countries[selectedCountry];
+  delete countries[selectedCountry];
+  $('.question').html(selectedCountry);
+}
+
+function compareAnswers(e) {
+  e.preventDefault();
+
+  const inputValue = $('#answer').val();
+  const userAnswer = inputValue[0].toUpperCase() + inputValue.slice(1);
+
+  if (userAnswer === answer) {
+    console.log('correct');
+    score++;
+    $('#scoreboard span').text(score);
+    $('#answer').val('');
+
+    checkUserScore();
+  } else {
+    console.log('wrong');
+    $('#answer').val('');
+
+    checkUserScore();
   }
-  $innerBox.text(countries1[randomnumber()]);
+}
 
-  //answer box text
-  $('#textInput').keyup(function(){
-    console.log($('#textInput').val());
+function checkUserScore() {
+  if (score === 5) {
+    const $levelUp = $('<div class="levelUp">Level Up</div>');
+    const $body = $('body');
+    $body.append($levelUp);
+    pickRandomCountry(countriesAndCapitals2);
+  } else {
+    pickRandomCountry();
+  }
+}
 
+function randomnumber() {
+  return Math.floor(Math.random() * 10);
+}
 
-    if ($('#textInput').val() === var pair = countriesAndCapitals["England"]) {
-      console.log('winner');
-    }
-  });
-
-
-// check value against a key value pair in an object
-// var pair = countriesAndCapitals["England"]
-
-
-
-
-
-});
+var counter = setInterval(timer, 1000);
+function timer() {
+  $('timer').text($time);
+  $time -= 1;
+  console.log(time);
+  if ($time === 0) {
+    clearInterval(counter);
+  }
+}

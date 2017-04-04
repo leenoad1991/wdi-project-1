@@ -1,14 +1,29 @@
+*{
+  box-sizing: border-box;
+}
+
 body {
   background: blue;
 }
 
 h1 {
-  padding-top: 20%;
+  padding-top: 20px;
   text-align: center;
-  font-size: 3em;
+  font-size: 50px;
   font-weight: 600;
-  line-height: 1.3em;
 }
+
+main {
+    max-width: 960px;
+    height: 400 px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    position: relative;
+    background-color: pink;
+}
+
  #questionbox {
   height: 100px;
   width: 100px;
@@ -27,7 +42,7 @@ h1 {
   display: inline-block;
 }
 
-#timescreen {
+.timer {
   height: 100px;
   width: 100px;
   border-style: solid;
@@ -43,4 +58,13 @@ h1 {
   background-color: white;
   margin: 20px;
   display: inline-block;
+}
+
+.levelUp {
+  height: 100px;
+  width: 100px;
+  border-style: solid;
+  background-color: white;
+  margin: 20px;
+  text-align: center;
 }

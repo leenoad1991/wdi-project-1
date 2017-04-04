@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>WDI project 1</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script
- src="https://code.jquery.com/jquery-3.2.1.js"
- integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
- crossorigin="anonymous"></script>
-    <script src="./js/app.js" charset="utf-8"></script>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>WDI project 1</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  <script src="./js/app.js" charset="utf-8"></script>
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+</head>
+<body>
+  <div class="navBar">
     <h1>Countries and cities</h1>
-    <h2 id="questionbox" class="innerBox" >Question</h2>
-    <h2> <input id="textInput" class="answerbox" type="text">Answer</h2>
-    <h2 id="timescreen"   >Timer</h2>
-    <h2 id="scoreboard"   >score</h2>
 
-    <div class="levelOne">
+  </div>
+  <main>
+  <h2 class="question">Question</h2>
+  <button type="button" name="button" class="start">Start</button>
+  <h2>Answer</h2>
+  <form>
+    <input id="answer" type="text">
+    <input type="submit" value="Answer">
+  </form>
+  <span class="timer">30</span>
+  <h2 id="scoreboard">Score <span>0</span></h2>
+  <div class="levelOne"></div>
 
-
-    </div>
-
-
-
-
-  </body>
+  </main>
+</body>
 </html>
