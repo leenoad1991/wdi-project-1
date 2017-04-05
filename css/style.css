@@ -3,61 +3,90 @@
 }
 
 body {
-  background: blue;
+  background: #2882FF;
+  font-family: helvetica,arial,sans-serif;
 }
 
 h1 {
   padding-top: 20px;
   text-align: center;
-  font-size: 50px;
-  font-weight: 600;
+  font-size: 39px;
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 30px;
+  font-family: helvetica,arial,sans-serif;
 }
 
 main {
-    max-width: 960px;
-    height: 400 px;
-    margin: 0 auto;
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-    position: relative;
-    background-color: pink;
+  /*max-width: 960px;
+  height: 400 px;
+  margin: 0 auto;
+  padding: 10px;
+  /*border: 1px solid black;*/
+  border-radius: 5px;
+  position: relative;
+  /*background-color: pink;*/*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  width: 100px;
+  height: 100px;
+  padding-top: 73px;
+  font-family: helvetica,arial,sans-serif;
 }
 
- #questionbox {
+#questionbox {
   height: 100px;
   width: 100px;
   border-style: solid;
   background-color: white;
   margin: 20px;
   display: inline-block;
- }
+}
 
 .answerbox {
   height: 100px;
   width: 100px;
   border-style: solid;
   background-color: white;
-  margin: 20px;
+  margin-top: 172px;
   display: inline-block;
 }
 
 .timer {
-  height: 100px;
+  height: 90px;
   width: 100px;
-  border-style: solid;
-  background-color: white;
+  background-color: #2882FF;
   margin: 20px;
   display: inline-block;
+  border-radius: 7px;
+  border: 2px solid white;
+  position: fixed;
+  top: 7em;
+  right: 1em;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
 }
 
 #scoreboard {
-  height: 100px;
+  height: 90px;
   width: 100px;
-  border-style: solid;
-  background-color: white;
+  background-color: #2882FF;
   margin: 20px;
   display: inline-block;
+  border-radius: 7px;
+  border: 2px solid white;
+  position: fixed;
+  top: 17em;
+  right: 1em;
+  color: white;
+  text-align: center;
+  line-height: 90px;
 }
 
 .levelUp {
@@ -67,4 +96,45 @@ main {
   background-color: white;
   margin: 20px;
   text-align: center;
+}
+
+.mainNavBar {
+  font-family: 'Indie Flower', cursive;
+  color: white;
+  font-size: 10px;
+  font-family: helvetica,arial,sans-serif;
+  width: 100%;
+  min-height: 60px;
+  display: block;
+  margin-bottom: 20px;
+}
+.start {
+  border: 2px solid white;
+  background-color: #2882FF;
+  height: 63px;
+  width: 74px;
+  border-radius: 3px;
+  font-family: helvetica,arial,sans-serif;
+  color: white;
+  font-size: 19px;
+}
+
+.start:hover {
+  background-color: yellow;
+}
+
+.submitBtn {
+  border: 2px solid white;
+  background-color: #2882FF;
+  height: 63px;
+  width: 74px;
+  border-radius: 3px;
+  font-family: helvetica,arial,sans-serif;
+  color: white;
+  margin-top: 20px;
+  font-size: 19px;
+}
+
+.submitBtn:hover {
+  background-color: yellow;
 }

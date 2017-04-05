@@ -1,3 +1,5 @@
+$(init);
+
 var countriesAndCapitals = {
   'England': 'London',
   'Spain': 'Madrid',
@@ -24,48 +26,50 @@ var countriesAndCapitals2 = {
   'Sweden': 'Stockholm'
 };
 
+
 let $question;
 let answer;
 let selectedCountry;
 let count = 1;
 let score = 0;
 const countryArray = [];
-var $time = 30;
+var $time = 40;
 
-
-$(init);
 
 function init() {
-  $question = $('#question');
-  $answer   = $('#answer');
+  let $question = $('#question');
+  let $answer   = $('#answer');
 
 
   $('.start').on('click', () => pickRandomCountry());
-  $('form').on('submit', compareAnswers);
+  $('#submit').on('submit', compareAnswers);
 }
 
 function pickRandomCountry(countries=countriesAndCapitals) {
   selectedCountry = Object.keys(countries)[randomnumber()];
   answer = countries[selectedCountry];
+  console.log(answer);
   delete countries[selectedCountry];
+  console.log(countries);
   $('.question').html(selectedCountry);
 }
 
 function compareAnswers(e) {
+  console.log('clicked');
   e.preventDefault();
 
   const inputValue = $('#answer').val();
-  const userAnswer = inputValue[0].toUpperCase() + inputValue.slice(1);
+  const userAnswer = inputValue;
+
+  // [0].toUpperCase() + inputValue.slice(1);
 
   if (userAnswer === answer) {
-    console.log('correct');
     score++;
     $('#scoreboard span').text(score);
     $('#answer').val('');
 
     checkUserScore();
   } else {
-    console.log('wrong');
     $('#answer').val('');
 
     checkUserScore();
@@ -73,11 +77,13 @@ function compareAnswers(e) {
 }
 
 function checkUserScore() {
-  if (score === 5) {
-    const $levelUp = $('<div class="levelUp">Level Up</div>');
+  if (score === 1) {
+    const $levelUp = $('.levelUp');
+    console.log($levelUp);
     const $body = $('body');
     $body.append($levelUp);
     pickRandomCountry(countriesAndCapitals2);
+
   } else {
     pickRandomCountry();
   }
@@ -89,10 +95,28 @@ function randomnumber() {
 
 var counter = setInterval(timer, 1000);
 function timer() {
-  $('timer').text($time);
   $time -= 1;
-  console.log(time);
+  $checkWin();
   if ($time === 0) {
     clearInterval(counter);
   }
+  $('.timer').html($time);
 }
+
+function $checkWin() {
+  if (($time === 0) && (score <= 4)) {
+    $('#alert-loser').text('Unlucky, time ran out. Play again?');
+  }
+}
+
+
+
+// /to do
+// timer
+// Show that player progresses to level 2 when score hits 5
+// Reset/show that player loses when time runs out.
+// push countries in to another array so the don't re-appear
+// Get cursor to start in box.
+// timer to start on 'go'
+// start level 2 - display something to say it's level 2, reset timer, play (countries and capitals2)
+// press enter rather than click button (attempted on line 42)

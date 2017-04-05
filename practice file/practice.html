@@ -1,0 +1,60 @@
+$(init); // this always has to be at the top. It's for the document loaded.
+-----------------------------------------------------------------------------------------------------
+
+//this is a varable that can hold anything, but for this particular instance, we're using keys and values.
+var countriesAndCapitals = {
+  'England': 'London',
+  'Spain': 'Madrid',
+  'France': 'Paris',
+  'USA': 'Washington DC',
+  'Germany': 'Berlin',
+  'Australia': 'Canberra',
+  'Italy': 'Rome',
+  'Holland': 'Amsterdam',
+  'Brazil': 'Brasilia',
+  'Canada': 'Ottawa',
+  'China': 'Beijing',
+  'Japan': 'Tokyo',
+  'Switerland': 'Bern',
+  'Denmark': 'Copenhagen',
+  'Greece': 'Athens',
+  'Ireland': 'Dublin',
+  'Jamaica': 'Kingston',
+  'Mexico': 'Mexico City',
+  'Norway': 'Oslo',
+  'Sweden': 'Stockholm'
+};
+-----------------------------------------------------------------------------------------------------
+.The difference between let and const is that once you bind a value/object to a variable using const, you can't reassign to that variable. Look at them as boxes too. The const box once taped up can't be opened. The let box once taped, can be re-opened, and can put new presents in etc.
+
+`let`, is a signal that the variable may be reassigned, such as a counter in a loop, or a value swap in an algorithm. It also signals that the variable will be used only in the block it’s defined in, which is not always the entire containing function.
+
+let $question;
+let answer;
+let selectedCountry;
+let count = 1;
+let score = 0;
+const countryArray = [];
+var $time = 30;
+-----------------------------------------------------------------------------------------------------
+This function is to randomize the countries. The selected country will be randomized by the object keys in the variable countries and capitals.
+
+
+function pickRandomCountry(countries=countriesAndCapitals) {
+  selectedCountry = Object.keys(countries)[randomnumber()];
+  answer = countries[selectedCountry];
+  console.log(answer);
+  delete countries[selectedCountry];
+  console.log(countries);
+  $('.question').html(selectedCountry);
+}
+-----------------------------------------------------------------------------------------------------
+
+The val() method returns or sets the value attribute of the selected elements.
+
+function compareAnswers(e) {
+  console.log('clicked');
+  e.preventDefault();
+
+  const inputValue = $('#answer').val();
+  const userAnswer = inputValue[0].toUpperCase() + inputValue.slice(1);
