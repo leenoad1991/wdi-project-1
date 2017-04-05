@@ -1,140 +1,101 @@
-*{
+* {
   box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
 body {
   background: #2882FF;
-  font-family: helvetica,arial,sans-serif;
+  font-family: 'Helvetica Nueue', arial,sans-serif;
+  color: white;
+  text-align: center;
 }
 
+/*************** Styles for typography ***************/
+
 h1 {
-  padding-top: 20px;
-  text-align: center;
-  font-size: 39px;
-  font-weight: 100;
+  font-size: 40px;
 }
 
 h2 {
   font-size: 30px;
-  font-family: helvetica,arial,sans-serif;
 }
+
+/*************** Styles for header ***************/
+
+header .controls {
+  display: none;
+  max-width: 300px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+header .timer {
+  width: 50%;
+  float: left;
+  height: 60px;
+  line-height: 60px;
+}
+
+header .scoreboard {
+  width: 50%;
+  float: left;
+  height: 60px;
+  line-height: 60px;
+}
+
+header .message {
+  display: none;
+}
+
+/*************** Styles for main ***************/
 
 main {
-  /*max-width: 960px;
-  height: 400 px;
-  margin: 0 auto;
-  padding: 10px;
-  /*border: 1px solid black;*/
-  border-radius: 5px;
-  position: relative;
-  /*background-color: pink;*/*/
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -50px;
-  margin-left: -50px;
-  width: 100px;
-  height: 100px;
-  padding-top: 73px;
-  font-family: helvetica,arial,sans-serif;
+  display: none;
 }
 
-#questionbox {
-  height: 100px;
-  width: 100px;
-  border-style: solid;
-  background-color: white;
-  margin: 20px;
-  display: inline-block;
-}
-
-.answerbox {
-  height: 100px;
-  width: 100px;
-  border-style: solid;
-  background-color: white;
-  margin-top: 172px;
-  display: inline-block;
-}
-
-.timer {
-  height: 90px;
-  width: 100px;
-  background-color: #2882FF;
-  margin: 20px;
-  display: inline-block;
-  border-radius: 7px;
-  border: 2px solid white;
-  position: fixed;
-  top: 7em;
-  right: 1em;
-  color: white;
-  text-align: center;
-  padding: 30px 0;
-}
-
-#scoreboard {
-  height: 90px;
-  width: 100px;
-  background-color: #2882FF;
-  margin: 20px;
-  display: inline-block;
-  border-radius: 7px;
-  border: 2px solid white;
-  position: fixed;
-  top: 17em;
-  right: 1em;
-  color: white;
-  text-align: center;
-  line-height: 90px;
-}
-
-.levelUp {
-  height: 100px;
-  width: 100px;
-  border-style: solid;
-  background-color: white;
-  margin: 20px;
-  text-align: center;
-}
-
-.mainNavBar {
-  font-family: 'Indie Flower', cursive;
-  color: white;
-  font-size: 10px;
-  font-family: helvetica,arial,sans-serif;
-  width: 100%;
-  min-height: 60px;
+form {
   display: block;
-  margin-bottom: 20px;
 }
-.start {
-  border: 2px solid white;
-  background-color: #2882FF;
-  height: 63px;
-  width: 74px;
-  border-radius: 3px;
-  font-family: helvetica,arial,sans-serif;
+
+input {
+  display: block;
+  min-width: 400px;
+  margin: 20px auto;
+  height: 60px;
+  line-height: 60px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid white;
   color: white;
-  font-size: 19px;
+  font-size: 30px;
+  text-align: center;
 }
 
-.start:hover {
-  background-color: yellow;
+input:focus{
+  outline: none;
+  border-bottom: 2px solid yellow;
 }
 
-.submitBtn {
+/*************** Styles for buttons ***************/
+
+button {
+  min-width: 300px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 20px;
   border: 2px solid white;
-  background-color: #2882FF;
-  height: 63px;
-  width: 74px;
-  border-radius: 3px;
-  font-family: helvetica,arial,sans-serif;
   color: white;
-  margin-top: 20px;
-  font-size: 19px;
+  background: none;
+  padding: 0;
+  font-weight: 700;
 }
 
-.submitBtn:hover {
-  background-color: yellow;
+button:hover {
+  border-color: yellow;
 }
+
+/******************************************/

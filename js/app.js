@@ -1,3 +1,14 @@
+// TO DO
+//
+// timer
+// Show that player progresses to level 2 when score hits 5
+// Reset/show that player loses when time runs out.
+// push countries in to another array so the don't re-appear
+// Get cursor to start in box.
+// timer to start on 'go'
+// start level 2 - display something to say it's level 2, reset timer, play (countries and capitals2)
+// press enter rather than click button (attempted on line 42)
+
 $(init);
 
 var countriesAndCapitals = {
@@ -10,10 +21,7 @@ var countriesAndCapitals = {
   'Italy': 'Rome',
   'Holland': 'Amsterdam',
   'Brazil': 'Brasilia',
-  'Canada': 'Ottawa'
-};
-
-var countriesAndCapitals2 = {
+  'Canada': 'Ottawa',
   'China': 'Beijing',
   'Japan': 'Tokyo',
   'Switerland': 'Bern',
@@ -26,97 +34,94 @@ var countriesAndCapitals2 = {
   'Sweden': 'Stockholm'
 };
 
-
+let $main;
+let $start;
+let $form;
+let $controls;
 let $question;
+let $answer;
+let $message;
+let $timer;
+let $scoreboard;
+
+let counter;
 let answer;
 let selectedCountry;
-let count = 1;
 let score = 0;
-const countryArray = [];
-var $time = 40;
-
+let time  = 10;
 
 function init() {
-  let $question = $('#question');
-  let $answer   = $('#answer');
+  $main       = $('main');
+  $question   = $('.question');
+  $start      = $('.start');
+  $form       = $('form');
+  $controls   = $('.controls');
+  $answer     = $('input');
+  $message    = $('.message');
+  $timer      = $('.timer span');
+  $scoreboard = $('.scoreboard n');
 
-
-  $('.start').on('click', () => pickRandomCountry());
-  $('#submit').on('submit', compareAnswers);
+  $start.on('click', start);
+  $form.on('submit', compareAnswers);
 }
 
-function pickRandomCountry(countries=countriesAndCapitals) {
-  selectedCountry = Object.keys(countries)[randomnumber()];
-  answer = countries[selectedCountry];
-  console.log(answer);
-  delete countries[selectedCountry];
-  console.log(countries);
-  $('.question').html(selectedCountry);
+function start() {
+  $main.show();
+  $start.hide();
+  $controls.show();
+  $message.hide();
+
+  counter = setInterval(timer, 1000);
+  pickRandomCountry();
+}
+
+function timer() {
+  time -= 1;
+  checkWin();
+
+  if (time === 0) {
+    clearInterval(counter);
+  }
+
+  $timer.html(time);
+}
+
+function pickRandomCountry() {
+  selectedCountry = Object.keys(countriesAndCapitals)[randomnumber()];
+  answer = countriesAndCapitals[selectedCountry];
+
+  // Used for debugging the game
+  console.log(selectedCountry, answer);
+
+  delete countriesAndCapitals[selectedCountry];
+  $question.html(`What is the captal of ${selectedCountry}?`);
 }
 
 function compareAnswers(e) {
-  console.log('clicked');
   e.preventDefault();
 
-  const inputValue = $('#answer').val();
+  const inputValue = $answer.val();
   const userAnswer = inputValue;
-
-  // [0].toUpperCase() + inputValue.slice(1);
 
   if (userAnswer === answer) {
     score++;
-    $('#scoreboard span').text(score);
-    $('#answer').val('');
-
-    checkUserScore();
-  } else {
-    $('#answer').val('');
-
-    checkUserScore();
+    $scoreboard.text(score);
   }
-}
 
-function checkUserScore() {
-  if (score === 1) {
-    const $levelUp = $('.levelUp');
-    console.log($levelUp);
-    const $body = $('body');
-    $body.append($levelUp);
-    pickRandomCountry(countriesAndCapitals2);
-
-  } else {
-    pickRandomCountry();
-  }
+  $answer.val('');
+  pickRandomCountry();
 }
 
 function randomnumber() {
   return Math.floor(Math.random() * 10);
 }
 
-var counter = setInterval(timer, 1000);
-function timer() {
-  $time -= 1;
-  $checkWin();
-  if ($time === 0) {
-    clearInterval(counter);
-  }
-  $('.timer').html($time);
-}
-
-function $checkWin() {
-  if (($time === 0) && (score <= 4)) {
-    $('#alert-loser').text('Unlucky, time ran out. Play again?');
+function checkWin() {
+  if ((time === 0) && (score <= 4)) {
+    $main.hide();
+    $start.show();
+    $controls.hide();
+    $message.show();
+    $message.text('Unlucky, time ran out. Play again?');
   }
 }
-
-
-
-// /to do
-// timer
-// Show that player progresses to level 2 when score hits 5
-// Reset/show that player loses when time runs out.
-// push countries in to another array so the don't re-appear
-// Get cursor to start in box.
-// timer to start on 'go'
-// start level 2 - display something to say it's level 2, reset timer, play (countries and capitals2)
-// press enter rather than click button (attempted on line 42)

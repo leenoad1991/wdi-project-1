@@ -11,24 +11,30 @@
   <script src="./js/app.js" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 </head>
-
 <body>
-  <div class="mainNavBar">
+  <header>
     <h1>Countries and cities</h1>
-  </div>
+
+    <!-- Message is hidden at the start -->
+    <h2 class="message"></h2> 
+
+    <button class="start">Start</button>
+
+    <!-- Controls are hidden at the start -->
+    <div class="controls">
+      <div class="timer">Timer <span>0</span></div>
+      <div class="scoreboard">Score <span>0</span></div>
+    </div>
+  </header>
+
+  <!-- main is hidden at the start -->
   <main>
-    <button type="button" name="button" class="start">Start</button>
-    <h2 class="question">Random country</h2>
+    <h2 class="question"></h2>
 
-    <form id="submit" autocomplete="off">
+    <form autocomplete="off">
       <input id="answer" type="text">
-      <button class="submitBtn" value="Answer" autocomplete="off">Submit</button>
+      <button autocomplete="off">Submit</button>
     </form>
-
-    <div class="timer">Timer to go here</div>
-    <div id="scoreboard">Score <span>0</span></div>
-    <p id="alert-loser"></p>
-    <div class="levelOne"></div>
   </main>
 </body>
 </html>
