@@ -12,6 +12,7 @@ body {
   font-family: 'Helvetica Nueue', arial,sans-serif;
   color: white;
   text-align: center;
+  padding-top: 120px;
 }
 
 /*************** Styles for typography ***************/
@@ -38,6 +39,7 @@ header .timer {
   float: left;
   height: 60px;
   line-height: 60px;
+
 }
 
 header .scoreboard {
@@ -45,6 +47,7 @@ header .scoreboard {
   float: left;
   height: 60px;
   line-height: 60px;
+
 }
 
 header .message {
