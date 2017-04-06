@@ -15,8 +15,6 @@ body {
   padding-top: 120px;
 }
 
-/*************** Styles for typography ***************/
-
 h1 {
   font-size: 40px;
 }
@@ -24,8 +22,6 @@ h1 {
 h2 {
   font-size: 30px;
 }
-
-/*************** Styles for header ***************/
 
 header .controls {
   display: none;
@@ -39,7 +35,6 @@ header .timer {
   float: left;
   height: 60px;
   line-height: 60px;
-
 }
 
 header .scoreboard {
@@ -47,14 +42,11 @@ header .scoreboard {
   float: left;
   height: 60px;
   line-height: 60px;
-
 }
 
 header .message {
   display: none;
 }
-
-/*************** Styles for main ***************/
 
 main {
   display: none;
@@ -83,8 +75,6 @@ input:focus{
   border-bottom: 2px solid yellow;
 }
 
-/*************** Styles for buttons ***************/
-
 button {
   min-width: 300px;
   height: 60px;
@@ -100,5 +90,3 @@ button {
 button:hover {
   border-color: yellow;
 }
-
-/******************************************/
