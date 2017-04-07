@@ -1,7 +1,7 @@
 # wdi-project-1
 My first project for WDI London:
 
-![](pictures/Screen Shot 2017-04-06 at 16.50.05.png)
+![screen shot 2017-04-06 at 16 49 05](https://cloud.githubusercontent.com/assets/25863708/24795891/dc24eccc-1b82-11e7-95ca-bc35607d3648.png)
 
 
 #Introduction
